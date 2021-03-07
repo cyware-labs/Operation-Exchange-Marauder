@@ -1,0 +1,13 @@
+# Microsoft Defender AV Queries:
+
+Exploit:Script/Exmann.A!dha
+Behavior:Win32/Exmann.A
+Backdoor:ASP/SecChecker.A
+ 
+# Generic Microsoft Defender AV Queries:
+
+Backdoor:JS/Webshell (not unique)
+Trojan:JS/Chopper!dha (not unique)
+Behavior:Win32/DumpLsass.A!attk (not unique)
+Backdoor:HTML/TwoFaceVar.B (not unique)
+

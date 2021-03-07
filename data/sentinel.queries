@@ -1,0 +1,12 @@
+# Nishang Invoke-PowerShellTcpOneLine in Windows Event Logging:
+
+SecurityEvent  | where EventID == 4688  | where Process has_any ("powershell.exe", "PowerShell_ISE.exe")  | where CommandLine has "$client = New-Object System.Net.Sockets.TCPClient"
+
+# Downloads of PowerCat in cmd and Powershell command line logging in Windows Event Logs:
+
+SecurityEvent  | where EventID == 4688  | where Process has_any ("cmd.exe", "powershell.exe", "PowerShell_ISE.exe")  | where CommandLine has "https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1"
+
+# Exchange PowerShell Snapin being loaded. This can be used to export mailbox data, subsequent command lines should be inspected to verify usage:
+
+SecurityEvent  | where EventID == 4688  | where Process has_any ("cmd.exe", "powershell.exe", "PowerShell_ISE.exe")  | where isnotempty(CommandLine)  | where CommandLine contains "Add-PSSnapin Microsoft.Exchange.Powershell.Snapin"  | summarize FirstSeen = min(TimeGenerated), LastSeen = max(TimeGenerated) by Computer, Account, CommandLine
+
