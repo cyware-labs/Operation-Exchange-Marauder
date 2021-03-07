@@ -1,4 +1,6 @@
-CVE-2021-26855: Exploitation can be detected via the following Exchange HttpProxy logs.
+# CVE's Exploited in Operation Exchange Marauder
+
+## CVE-2021-26855: Exploitation can be detected via the following Exchange HttpProxy logs.
 
 These logs are located in the following directory:
 
@@ -14,7 +16,7 @@ If activity is detected, the logs specific to the application specified in the A
 
 These logs are located in the &quot;%PROGRAMFILES%\Microsoft\Exchange Server\V15\Logging&quot; directory.
 
-CVE-2021-26858: Exploitation can be detected via the Exchange log files:
+## CVE-2021-26858: Exploitation can be detected via the Exchange log files:
 
 These logs are located in the following directory:
 
@@ -26,7 +28,7 @@ Windows command to search for potential exploitation:
 
 _findstr /snip /c:&quot;Download failed and temporary file&quot; &quot;%PROGRAMFILES%\Microsoft\Exchange Server\V15\Logging\OABGeneratorLog\*.log&quot;_
 
-CVE-2021-26857: Exploitation can be detected via the Windows Application event logs
+## CVE-2021-26857: Exploitation can be detected via the Windows Application event logs
 
 The exploitation of this deserialization bug will create Application events with the following properties:
 
@@ -38,7 +40,7 @@ Below is a PowerShell command to query the Application Event Log for these log e
 
 _Get-EventLog -LogName Application -Source &quot;MSExchange Unified Messaging&quot; -EntryType Error | Where-Object { $\_.Message -like &quot;\*System.InvalidCastException\*&quot; }_
 
-CVE-2021-27065: Exploitation can be detected via the following Exchange log files.
+## CVE-2021-27065: Exploitation can be detected via the following Exchange log files.
 
 These logs are located in the following directory:
 
