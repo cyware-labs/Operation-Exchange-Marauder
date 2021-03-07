@@ -1,6 +1,26 @@
 #
-# **List of All CVEs and IOCs Used by HAFNIUM to Target Microsoft Exchange Servers**
-
+# **Operation Exchange Marauder - An aggregated view for Defenders**
+------------
+- [Introduction](#Introduction)
+- [Advisories, Analysis, and Countermeasures](#Advisories-Analysis-and-Countermeasures)
+- [CVE's Exploited](#CVEs-Exploited-by-HAFNIUM)
+- [Tools Used in the Attack](#Tools-Used-in-the-Attack)
+- [Methodology of Attack](#Methodology-of-Attack)
+- [Detection](#Detection-Mechanisms)
+	-	CVE Detections
+	-	Microsoft defender Queries
+	-	Sentinel Queries
+	-	Powershell Queries
+	-	STIX Object
+- [Indicators](#Indicators)
+  -	IP addresses
+  -	Hashes
+  - Paths
+  -	Web Shell Names
+  -	YARA Rules by Volexity
+  -	User Agents
+- [Contribution](#Contribution)
+------------
 ## Introduction
 
 In a major revelation on March 2, 2021, Microsoft published a blog detailing the detection of multiple zero-day exploits being used to attack on-premises versions of Microsoft Exchange Server in limited and targeted attacks. Researchers from Volexity and Dubex also contributed to the discovery of this attack chain.
@@ -13,7 +33,7 @@ The affected systems show tendencies of an automated scan and hack, which prompt
 
 The affected networks seem to be more of small and medium-sized organizations rather than larger enterprises, the reason for which can be that the larger enterprises often use email systems based out of the cloud. In a [press conference](https://thehill.com/policy/cybersecurity/541849-psaki-describes-microsoft-email-breach-as-significant-and-active-threat), White House press secretary Jen Psaki urged that everyone running the vulnerable Exchange servers should immediately patch them.
 
-## Advisories, Analysis, and Countermeasures
+## Advisories-Analysis-and-Countermeasures
 
 Microsoft: [HAFNIUM targeting Exchange Servers with 0-day exploits](https://www.microsoft.com/security/blog/2021/03/02/hafnium-targeting-exchange-servers/)
 
@@ -24,10 +44,10 @@ DHS Emergency Directive 21-02: [Mitigate Microsoft Exchange On-Premises Product 
 US-CERT: [Mitigate Microsoft Exchange Server Vulnerabilities](https://us-cert.cisa.gov/ncas/alerts/aa21-062a)
 
 Wired: [Chinese Hacking Spree Hit an &#39;Astronomical&#39; Number of Victims](https://www.wired.com/story/china-microsoft-exchange-server-hack-victims/)
-
+ 
 AlientVault: [Operation Exchange Marauder: Active Exploitation of Multiple Zero-Day Microsoft Exchange Vulnerabilities](https://otx.alienvault.com/pulse/603f0fd90aeed325162eeb9b/)
 
-## CVEs Exploited by HAFNIUM
+## CVEs-Exploited-by-HAFNIUM
 
 These are the CVE IDs of the vulnerabilities exploited by Hafnium in the Microsoft Exchange Server attack:
 
@@ -36,7 +56,7 @@ These are the CVE IDs of the vulnerabilities exploited by Hafnium in the Microso
 - [CVE-2021-26858](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-26858)
 - [CVE-2021-27065](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-27065)
 
-## Tools Used in the Attack
+## Tools-Used-in-the-Attack
 
 - ASP Web shells
 - MiniDump
@@ -47,7 +67,7 @@ These are the CVE IDs of the vulnerabilities exploited by Hafnium in the Microso
 - Nishang
 - Powercat
 
-## Methodology of Attack
+## Methodology-of-Attack
 
 - ASP web shells to initially exploit and perform additional malicious actions
 - Procdump to dump the LSASS process memory
@@ -56,7 +76,7 @@ These are the CVE IDs of the vulnerabilities exploited by Hafnium in the Microso
 - Nishang Invoke-PowerShellTcpOneLine reverse shell
 - PowerCat from GitHub, then using it to open a connection to a remote server
 
-## Detection Mechanisms
+## Detection-Mechanisms
 
 ### CVE Detections
 
@@ -151,9 +171,9 @@ Exchange PowerShell Snapin being loaded. This can be used to export mailbox data
 
 _SecurityEvent | where EventID == 4688 | where Process has\_any (&quot;cmd.exe&quot;, &quot;powershell.exe&quot;, &quot;PowerShell\_ISE.exe&quot;) | where isnotempty(CommandLine) | where CommandLine contains &quot;Add-PSSnapin Microsoft.Exchange.Powershell.Snapin&quot; | summarize FirstSeen = min(TimeGenerated), LastSeen = max(TimeGenerated) by Computer, Account, CommandLine_
 
-## Indicators of Compromise (IOCs)
+## Indicators
 
-### Attacker IP Addresses
+### IP Addresses
 
 103.77.192[.]219
 
@@ -408,3 +428,7 @@ ExchangeServicesClient/0.0.0.0
 python-requests/2.19.1
 
 python-requests/2.25.1
+
+## Contribution
+
+We are always on the lookout for latest indicators, detection mechanisims and relations. If you note something we have missed or which you would like to add, please raise an issue or create a pull request!
