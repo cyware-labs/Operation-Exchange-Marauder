@@ -1,4 +1,4 @@
-Rule 1: rule webshell_aspx_simpleseesharp : Webshell Unclassified
+# Rule 1: rule webshell_aspx_simpleseesharp : Webshell Unclassified
 
 {
 meta:
@@ -17,7 +17,7 @@ condition:
     filesize < 1KB
 }
  
-Rule 2: rule webshell_aspx_reGeorgTunnel : Webshell Commodity
+# Rule 2: rule webshell_aspx_reGeorgTunnel : Webshell Commodity
 
 {
 meta:
@@ -42,7 +42,7 @@ condition:
     all of ($t*)
 }
  
-Rule 3: rule webshell_aspx_sportsball : Webshell Unclassified
+# Rule 3: rule webshell_aspx_sportsball : Webshell Unclassified
 
 {
 meta:
