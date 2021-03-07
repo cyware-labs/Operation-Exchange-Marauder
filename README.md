@@ -75,7 +75,7 @@ These are the CVE IDs of the vulnerabilities exploited by Hafnium in the Microso
 ## Detection-Mechanisms
 
 ### CVE Detections
-Information regarding the CVE's exploited and detection mechanisms can be found [here](https://github.com/cyware-labs/Operation-Exchange-Marauder/data/CVE_detections.md)
+Information regarding the CVE's exploited and detection mechanisms can be found [here](https://github.com/cyware-labs/Operation-Exchange-Marauder/blob/main/data/CVE_detections.md)
 
 ### Microsoft Defender AV Queries
 A list of Microsoft Defender AV queries, both specialised for the HAFNIUM attack and generic detection can be found [here](https://github.com/cyware-labs/Operation-Exchange-Marauder/blob/main/data/defender.queries)
