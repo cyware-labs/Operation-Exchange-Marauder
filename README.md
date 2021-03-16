@@ -40,9 +40,9 @@ The affected networks seem to be more of small and medium-sized organizations ra
 - Volexity: [Operation Exchange Marauder: Active Exploitation of Multiple Zero-Day Microsoft Exchange Vulnerabilities](https://www.volexity.com/blog/2021/03/02/active-exploitation-of-microsoft-exchange-zero-day-vulnerabilities/)
 - DHS Emergency Directive 21-02: [Mitigate Microsoft Exchange On-Premises Product Vulnerabilities](https://cyber.dhs.gov/ed/21-02/)
 - US-CERT: [Mitigate Microsoft Exchange Server Vulnerabilities](https://us-cert.cisa.gov/ncas/alerts/aa21-062a)
+- US Cert: [Updated Release](https://us-cert.cisa.gov/ncas/current-activity/2021/03/13/updates-microsoft-exchange-server-vulnerabilities)
 - Wired: [Chinese Hacking Spree Hit an &#39;Astronomical&#39; Number of Victims](https://www.wired.com/story/china-microsoft-exchange-server-hack-victims/)
 - AlientVault: [Operation Exchange Marauder: Active Exploitation of Multiple Zero-Day Microsoft Exchange Vulnerabilities](https://otx.alienvault.com/pulse/603f0fd90aeed325162eeb9b/)
-
 ## CVEs-Exploited-by-HAFNIUM
 
 These are the CVE IDs of the vulnerabilities exploited by Hafnium in the Microsoft Exchange Server attack:
